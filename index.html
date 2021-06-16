@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Grid Drawing Tool</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="row text-center text-white bg-primary py-5">
+            <h1 class="text-white">
+                <i class="fa fa-th" aria-hidden="true"></i>
+                Grid Image Helper
+            </h1>
+            <h6 class="text-white">
+                Grid image for easier draw
+            </h6>
+            <span class="small">
+                <a href="https://twitter.com/sulealothman" target="_blank">
+                    <i class="fa fa-twitter text-white" aria-hidden="true"></i>
+                </a>
+                <a href="https://github.com/sulealothman" target="_blank">
+                    <i class="fa fa-github text-white" aria-hidden="true"></i>
+                </a>
+                <a href="https://snapchat.com/add/sulealothman" target="_blank">
+                    <i class="fa fa-snapchat text-white" aria-hidden="true"></i>
+                </a>
+                <a href="https://instagram.com/sulealothman" target="_blank">
+                    <i class="fa fa-instagram text-white" aria-hidden="true"></i>
+                </a>
+                @sulealothman
+            </span>
+        </div>
+
+        <div class="row py-3">
+            <div class="col-12 col-md-6 mb-3">
+                <div class="row">
+                    <div class="col-auto">
+                        <label for="choose-image" class="col-form-label">Choose Image</label>
+                    </div>
+                    <div class="col-auto">
+                        <input class="form-control" type="file" id="choose-image">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 mb-3 d-flex justify-content-center justify-content-md-end">
+                <button id="save" class="btn btn-info disabled">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                    Save Changes
+                </button>
+                <button id="reset" class="btn btn-warning disabled">
+                    <i class="fa fa-undo" aria-hidden="true"></i>
+                    Undo Changes
+                </button>
+                <button id="download" class="btn btn-success disabled">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                    Download
+                </button>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-12 col-md-4">
+                <h4 class="py-2 border-bottom">
+                    Grid
+                </h4>
+                <div class="py-2">
+                    <div class="form-check">
+                        <input class="form-check-input select-element" type="checkbox" value="" id="boxes-size" checked disabled>
+                        <label class="form-check-label" for="boxes-size">
+                          Boxing size
+                        </label>
+                      </div>
+                    <label for="square-count" class="form-label">Boxes</label>
+                    <select id="square-count" class="form-select select-element" disabled>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                    
+                </div>
+                <div class="py-2 d-none" id="horizontal-square">
+                    <label for="square-h-count" class="form-label">Boxes vertical</label>
+                    <select id="square-h-count" class="form-select select-element" disabled>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                <div class="py-2">
+                    <label for="line-width">Line width</label>
+                    <select id="line-width" class="form-select disabled select-element" disabled>
+                        <option value="1">1px</option>
+                        <option value="2">2px</option>
+                        <option value="3">3px</option>
+                        <option value="4">4px</option>
+                        <option value="5">5px</option>
+                        <option value="6">6px</option>
+                        <option value="7">7px</option>
+                        <option value="8">8px</option>
+                        <option value="9">9px</option>
+                        <option value="10">10px</option>
+                    </select>
+                </div>
+                <div class="py-2">
+                    <label for="color-picker" class="col-form-label">Gridline color</label>
+                    <input type="color" class="form-control form-control-color d-inline select-element"
+                        id="color-picker" value="#000" title="Choose your color" disabled>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <h4 class="py-2 border-bottom">
+                    Adjustment Colors
+                </h4>
+                <div class="py-2">
+                    <label for="brightness" class="form-label">Brightness : <span id="b-value">100%</span></label>
+                    <input type="range" class="form-range range-element" id="brightness" value="100" min="0" max="200"
+                        step="1" disabled>
+                </div>
+                <div class="py-2">
+                    <label for="contrast" class="form-label">Contrast : <span id="c-value">100%</span></label>
+                    <input type="range" class="form-range range-element" id="contrast" value="100" min="0" max="200"
+                        step="1" disabled>
+                </div>
+                <div class="py-2">
+                    <label for="saturation" class="form-label">Saturation : <span id="s-value">100%</span></label>
+                    <input type="range" class="form-range range-element" id="saturation" value="100" min="0" max="800"
+                        step="1" disabled>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <h4 class="py-2 text-center border-bottom">
+                    Extra
+                </h4>
+                <div class="d-flex justify-content-center mb-3">
+                    <button id="black-white" class="btn btn-primary disabled">
+                        <i class="fa fa-magic" aria-hidden="true"></i>
+                        Black & White
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <div class="row border-top my-3 py-3" id="container-image">
+            <div>
+                <canvas id="canvas">
+                    Your browser doesn't support canvas
+                </canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+    <script>
+        let imgUrl;
+        let filenameImage;
+        let changesList = [];
+        let isEdited = false;
+
+        
+        let hSquare = document.getElementById('boxes-size');
+        let squareCount = document.getElementById('square-count');
+        let squareHCount = document.getElementById('square-h-count');
+
+        let lineWidth = document.getElementById('line-width');
+        let colorPicker = document.getElementById('color-picker');
+
+        let chooseImage = document.getElementById('choose-image');
+        let resetBtn = document.getElementById('reset');
+        let saveBtn = document.getElementById('save');
+        let downloadBtn = document.getElementById('download');
+        let blackWhiteBtn = document.getElementById('black-white');
+
+
+        let brightnessRange = document.getElementById('brightness');
+        let contrastRange = document.getElementById('contrast');
+        let saturationRange = document.getElementById('saturation');
+
+        let rangeElements = document.querySelectorAll('.range-element');
+        let selectElements = document.querySelectorAll('.select-element');
+
+        rangeElements.forEach(function (elm) {
+            elm.addEventListener('change', function () {
+                if (imgUrl) {
+                    document.getElementById('b-value').innerHTML = `${brightnessRange.value}%`;
+                    document.getElementById('c-value').innerHTML = `${contrastRange.value}%`;
+                    document.getElementById('s-value').innerHTML = `${saturationRange.value}%`;
+
+                    drawCanvas(imgUrl, filter, {'b': brightnessRange.value, 'c' : contrastRange.value, 's': saturationRange.value});
+                    saveBtn.classList.remove('disabled');
+
+                }
+            });
+        });
+
+        selectElements.forEach(function (elm) {
+            elm.addEventListener('change', function () {
+                if (imgUrl) {
+                    if(!hSquare.checked) {
+                        drawCanvas(imgUrl, drawGridLines, {
+                            'num_squares': squareCount.value,
+                            'vertical_squares': squareHCount.value,
+                            'line_width': lineWidth.value,
+                            'line_color': colorPicker.value,
+                        });
+                    } else {
+                        drawCanvas(imgUrl, drawGridLines, {
+                            'num_squares': squareCount.value,
+                            'vertical_squares': null,
+                            'line_width': lineWidth.value,
+                            'line_color': colorPicker.value,
+                        });
+                    }
+                    saveBtn.classList.remove('disabled');
+                }
+            });
+        });
+
+        hSquare.addEventListener('change', function() {
+            if(!hSquare.checked) {
+                document.getElementById('horizontal-square').classList.remove('d-none');
+            } else {
+                document.getElementById('horizontal-square').classList.add('d-none');
+            }
+        })
+        saveBtn.addEventListener('click', function () {
+            if (imgUrl) {
+                var canvas = document.getElementById("canvas");
+                changesList.push(imgUrl);
+                imgUrl = canvas.toDataURL('image/jpeg');
+                saveBtn.classList.add('disabled');
+                resetBtn.classList.remove('disabled');
+            }
+        })
+
+        resetBtn.addEventListener('click', function () {
+            if (imgUrl) {
+                imgUrl = changesList.slice(-1);
+                changesList.pop();
+                if(!changesList.length) {
+                    resetBtn.classList.add('disabled');
+                }
+                drawCanvas(imgUrl);
+            }
+        })
+
+        downloadBtn.addEventListener('click', function () {
+            if (imgUrl) {
+                var canvas = document.getElementById("canvas");
+                var dataURL = canvas.toDataURL("image/jpeg");
+                downloadImage(dataURL, `${filenameImage}-sule-grid.jpg`);
+            }
+        })
+
+        blackWhiteBtn.addEventListener('click', function () {
+            if (imgUrl) {
+                drawCanvas(imgUrl, blackWhiteAdjustment);
+                isEdited = true;
+                saveBtn.classList.remove('disabled');
+            }
+        })
+
+        chooseImage.addEventListener('change', function (e) {
+            imgUrl = URL.createObjectURL(e.target.files[0]);
+            filenameImage = e.target.files[0].name;
+            filenameImage = filenameImage.substring(0, filenameImage.lastIndexOf('.'));
+            drawCanvas(imgUrl)
+            rangeElements.forEach(function (el) {
+                el.removeAttribute('disabled');
+            });
+
+            selectElements.forEach(function (el) {
+                el.removeAttribute('disabled');
+            })
+            downloadBtn.classList.remove('disabled');
+            blackWhiteBtn.classList.remove('disabled');
+        });
+        
+    </script>
+</body>
+
+</html>
